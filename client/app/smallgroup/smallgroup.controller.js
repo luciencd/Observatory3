@@ -11,7 +11,11 @@ angular.module('observatory3App')
 var getAttendees = function(dayCode){
     $http.get('/api/attendance/code/attendees/'+dayCode)
     .success(function (data){
-      $scope.numOfattendend = data;
+      console.log(data.length);
+      for(var j = 0; j < data.length; j++){
+        console.log(data[j].name);
+      }
+      //store a list of attendees
     }).error(function(err){
       console.log(err);
     });
